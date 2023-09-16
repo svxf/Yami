@@ -1,3 +1,9 @@
+# Yami
+![Project Logo](/resources/frontend.png)
+
+## Overview
+A simple spotify frontend recreated with a different color scheme using React, Next.js, and TailwindCSS
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
