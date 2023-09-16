@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+:root {
+  height: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+/* Apply the custom classes to the body element */
+body {
+  @apply bg-main text-text;
+  padding-top: 32px;
+  padding: 0 8px 8px;
+}
+
+.top-container {
+  display: grid;
+  gap: 8px;
+  grid-template-areas: "top-bar         top-bar         top-bar"
+"nav-bar         main-view       right-sidebar"
+"now-playing-bar now-playing-bar now-playing-bar";
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
+  min-height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.trackInfo {
+  grid-template: "title title"
+"badges subtitle"/auto 1fr;
+  margin: 0px 14px;
+  padding-top: 28px;
+  column-gap: 8px;
+}
+.trackInfoG {
+  grid-template: "title title"
+"badges subtitle"/auto 1fr;
+}
+
+.playbackBar {
+  position: fixed;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-areas: "time-left time-right" "bar bar";
+  bottom: 0;
+  right: 0;
+  gap: 0;
+}
+
+.progressBar {
+  background-color: transparent;
+  background-image: linear-gradient(90deg, #F7407B 93%, transparent 100%);
+}
+
+.volumeBar {
+  flex: 0 1 125px;
+}
+
+.mainView {
+  grid-area: main-view/main-view/main-view/right-sidebar;
+}
+.mainImage {
+  filter: blur(4px);
+  -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+  mask-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+}
+
+.mainViewContainer {
+  background: linear-gradient(rgba(10,10,16, 0.6) 0, #0A0A10 232px), url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=") !important;
+}
+.artShadow {
+  box-shadow: 0 4px 60px rgba(175,139,243,.5);
+}
+
+.trackGrid {
+  grid-template-columns: [index] 16px [first] 6fr [var1] 4fr [var2] 3fr [last] minmax(120px,1fr);
+}
+.trackRow {
+  grid-template-columns: [first] 6fr [var1] 4fr [var2] 3fr [last] minmax(120px, 1fr) !important;
+}
